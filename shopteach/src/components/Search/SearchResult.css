@@ -1,0 +1,14 @@
+#result_icon {
+  font-size: 1.4rem;
+}
+#icon_search {
+  padding-bottom: 3.5px;
+  font-size: 1.6rem;
+}
+#clearProduct {
+  padding-bottom: 3.5px;
+  font-size: 1.6rem;
+}
+input:not(:placeholder-shown) ~ .select {
+  color: #e879f9;
+}
