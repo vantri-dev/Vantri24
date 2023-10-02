@@ -2,7 +2,7 @@ import React from 'react'
 
 import {  BsChevronRight } from "react-icons/bs";
 import BrandStore from './BrandStore'
-
+import BrandPhoneProudct from './BrandPhoneProudct';
  import { Link } from 'react-router-dom'
 export default function BrandPhone() {
   return (
@@ -37,6 +37,7 @@ export default function BrandPhone() {
         />
      </div>
      <BrandStore/>
+     <BrandPhoneProudct/>
     </div>
   )
 }

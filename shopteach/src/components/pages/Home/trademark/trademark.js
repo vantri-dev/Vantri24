@@ -24,12 +24,12 @@ export default function Trademark() {
                 <li
                 onClick={()=>settabTrademark(index)}
                   key={index}
-                  className={ tabTrademark === index ? 'ml-5 h-[30px] pt-[2px] rounded-xl border  cursor-pointer hover:border-violet border-violet' : 'ml-5 h-[30px] pt-[2px] rounded-xl border  cursor-pointer hover:border-violet'} 
+                  className={ tabTrademark === index ? 'ml-5 h-[30px] pt-[2px] rounded-xl border  cursor-pointer hover:border-violet border-violet' : 'ml-5 h-[30px] pt-[2px]  rounded-xl border  cursor-pointer hover:border-violet transition-all ease-out duration-75 hover:scale-[1.02]'} 
                 >
                   <span className={tabTrademark === index ? 'w-full px-5   hover:text-fuchsia-500    font-semibold text-violet' : 'w-full px-5   hover:text-fuchsia-500    font-semibold'}>
                     {item}
                   </span>
-                </li>
+                </li>                       
               );
             })}
           </ul>
