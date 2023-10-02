@@ -143,7 +143,7 @@ function Home() {
           <Product/>
       
           {/* <Footer/> */}
-          <BackTop/>
+          {/* <BackTop/> */}
        
       </div>
     </div>
