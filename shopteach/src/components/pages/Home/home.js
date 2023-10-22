@@ -142,7 +142,6 @@ function Home() {
         
           <Product/>
       
-          {/* <Footer/> */}
           <BackTop/>
        
       </div>

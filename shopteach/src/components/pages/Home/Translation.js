@@ -15,6 +15,7 @@ export default function Translation() {
       name: "Miễn phí vận chuyển",
       img: TranslationImg1,
       bg: "bg-[#fff7ed]",
+      path:'/practicalShipping'
     },
     {
       name: "Giao hàng tận nơi",
@@ -67,7 +68,7 @@ export default function Translation() {
         <ul className="flex text-center justify-around ">
           {listTranslation.map((item, index) => {
             return (
-              <Link to="/" key={index}>
+              <Link to={item.path} key={index}>
                 <li
                   className={`my-[4px]  px-[14px] py-[3px] rounded-lg  shadow-lg ${item.bg}  hover:scale-[1.03] `}
                 >

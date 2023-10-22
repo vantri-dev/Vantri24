@@ -6,6 +6,7 @@ import { RiUserFollowLine } from "react-icons/ri";
 import { FiLogIn } from "react-icons/fi";
 
 import { useState, useEffect } from "react";
+
 export default function BrandStore() {
   const [followed, setFollowed] = useState(true);
   const [animationButton, setAnimationButton] = useState("");

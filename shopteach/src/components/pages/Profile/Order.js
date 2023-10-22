@@ -14,7 +14,7 @@ export default function Order() {
   const [tabs, setTabs] = useState(0);
   return (
     <div className=" w-full h-screen ">
-      <div className="w-full h-[70.2%]  bg-white rounded">
+      <div className="w-full   bg-gray-100 rounded">
         <nav className="flex justify-around pt-9 border-b pb-2  ">
           {listOrder.map((item, index) => {
             return (

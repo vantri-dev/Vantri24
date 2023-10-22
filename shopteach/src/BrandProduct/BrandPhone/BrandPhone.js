@@ -2,7 +2,7 @@ import React from 'react'
 
 import {  BsChevronRight } from "react-icons/bs";
 import BrandStore from './BrandStore'
-import BrandPhoneProudct from './BrandPhoneProudct';
+import BrandPhoneProudct from './BrandPhoneProudct/BrandPhoneHome';
  import { Link } from 'react-router-dom'
 export default function BrandPhone() {
   return (

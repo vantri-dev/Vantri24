@@ -8,7 +8,6 @@ export default function ListProductPhone() {
   const [products, setProducts] = useState([]);
   const [offset, setOffset] = useState(0);
 
-  const [bgPages,setBgPages]=useState(null)
   const itemsPerPage = 20;
   useEffect(() => {
     const dataProducts = async () => {
@@ -25,18 +24,16 @@ export default function ListProductPhone() {
   console.log(currentItems);
   const pageCount = Math.ceil(products.length / itemsPerPage);
   const handlePageClick = (e) => {
-    setBgPages(e.selected + 1)
+ 
     const newOffset = (e.selected * itemsPerPage) % products.length;
-    console.log(
-      `User requested page number ${e.selected}, which is offset ${newOffset}`
-    );
+
     setOffset(newOffset);
   };
 
   const value = {
     pageCount,
     handlePageClick,
-    bgPages
+  
   };
   return (
     <PagesContext.Provider value={value}>
