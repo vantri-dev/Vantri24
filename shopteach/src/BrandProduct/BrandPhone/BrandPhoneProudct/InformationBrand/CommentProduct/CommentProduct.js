@@ -6,7 +6,7 @@ import CommentUser from "./CommentUser";
 export default function CommentProduct() {
   const ListCommentProducts = [
     {
-      title: "Tat ca",
+      title: "Tất cả",
     },
     {
       title: "Có hình ảnh",

@@ -49,9 +49,7 @@ export default function CommentUser() {
                
             </div>
         </div>
-        <div className=' col-span-2'>
-1
-        </div>
+      
     </div>
   )
 }
