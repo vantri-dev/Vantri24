@@ -8,6 +8,7 @@ import Order from "../components/pages/Profile/Order"
 import SmartPhoneProduct from "../components/pages/CategoryProduct/SmartPhoneProduct/SmartPhoneProduct"
 import BrandPhone from "../BrandProduct/BrandPhone/BrandPhone"
 import PracticalShipping from "../practical/FreeShiping/PracticalShipping"
+import FlashSale from "../FlashSale/FlashSale"
 const publicRouter=[
     {
         path:'/',
@@ -51,6 +52,10 @@ const publicRouter=[
     {
         path:'/practicalShipping',
         component:PracticalShipping
+    },
+    {
+        path:'/flashsale',
+        component:FlashSale
     },
 
 ]

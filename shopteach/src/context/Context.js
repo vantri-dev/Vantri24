@@ -51,7 +51,11 @@ export function Context({ children }) {
       setcurrentUser(user);
     });
   }, []);
-  //Profile
+  //CountDown
+   function CountDown(){
+    const time = "Nov 09 2023 23:59:59"
+    return time
+   }
 
  
 
@@ -64,6 +68,8 @@ export function Context({ children }) {
     ForgotPassword,
     handleLoginGoogle,
     hanldeLoginFacebook,
+    //CountDown
+    CountDown
     //Profile
    
   };

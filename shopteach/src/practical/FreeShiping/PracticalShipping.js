@@ -2,6 +2,9 @@ import React from "react";
 
 import { FaShippingFast } from "react-icons/fa";
 import { BsChevronRight } from "react-icons/bs";
+import { TiFlashOutline } from "react-icons/ti";
+import { PiHandbagFill } from "react-icons/pi";
+import { BiLogoShopify } from "react-icons/bi";
 
 import FreeShipping from "./FreeShipping";
 import SummerSale from "./SummerSale";
@@ -28,7 +31,7 @@ export default function PracticalShipping() {
           src="https://thuhuongcake.vn/files/assets/mien_phi_van_chuyen_khi_mua_banh_sinh_nhat_tai_thu_huong_bakery.jpg"
         />
       </div>
-      <div className="flex  justify-center  sticky bg-orange-200   top-[80px] z-999    mb-10 ">
+      <div className="flex  justify-center  sticky bg-orange-200   top-[80px]   z-50   mb-10 ">
         <ul className="flex items-center mt-7  ">
           <li className="flex items-center  flex-col   w-[60px] mx-14  rounded-full cursor-pointer">
             <a href="#freeshipping">
@@ -42,7 +45,7 @@ export default function PracticalShipping() {
           </li>
           <li className="flex items-center  flex-col   w-[60px] mx-14  rounded-full cursor-pointer">
             <a href="#summersale">
-              <FaShippingFast className="text-[6rem] text-white   bg-teal-200 rounded-full w-[75px] h-[75px] px-[10px] py-[10px]" />
+              <TiFlashOutline className="text-[6rem] text-white   bg-teal-200 rounded-full w-[75px] h-[75px] px-[10px] py-[10px]" />
               <div className="text-center ">
                 <span className="text-textword text-[0.95rem]  font-sans font-medium flex-wrap ">
                Mùa hè siêu sale
@@ -52,7 +55,7 @@ export default function PracticalShipping() {
           </li>
           <li className="flex items-center  flex-col   w-[60px] mx-14  rounded-full cursor-pointer">
             <a href="#deal">
-              <FaShippingFast className="text-[6rem] text-white   bg-teal-200 rounded-full w-[75px] h-[75px] px-[10px] py-[10px]" />
+              <BiLogoShopify className="text-[6rem] text-white   bg-teal-200 rounded-full w-[75px] h-[75px] px-[10px] py-[10px]" />
               <div className=" text-center">
                 <span className="text-textword text-[0.95rem]  font-sans font-medium flex-wrap ">
                Deal xịn mỗi ngày
@@ -62,7 +65,7 @@ export default function PracticalShipping() {
           </li>
           <li className="flex items-center  flex-col   w-[60px] mx-14  rounded-full cursor-pointer">
             <a href="#outstanding">
-              <FaShippingFast className=" ml-[10px] text-[6rem] text-white   bg-teal-200 rounded-full w-[75px] h-[75px] px-[10px] py-[10px]" />
+              <PiHandbagFill className=" ml-[10px] text-[6rem] text-white   bg-teal-200 rounded-full w-[75px] h-[75px] px-[10px] py-[10px]" />
               <div className=" w-[100px] text-center">
                 <span className="text-textword text-[0.95rem]  font-sans font-medium  ">
               Chương trình  nổi bật
