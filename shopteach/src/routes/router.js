@@ -9,6 +9,7 @@ import SmartPhoneProduct from "../components/pages/CategoryProduct/SmartPhonePro
 import BrandPhone from "../BrandProduct/BrandPhone/BrandPhone"
 import PracticalShipping from "../practical/FreeShiping/PracticalShipping"
 import FlashSale from "../FlashSale/FlashSale"
+import Outstanding from "../Outstanding/Outstanding"
 const publicRouter=[
     {
         path:'/',
@@ -56,6 +57,10 @@ const publicRouter=[
     {
         path:'/flashsale',
         component:FlashSale
+    },
+    {
+        path:'/outstanding',
+        component:Outstanding
     },
 
 ]

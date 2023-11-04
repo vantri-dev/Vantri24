@@ -62,6 +62,7 @@ function Home() {
       name: "Mã giảm giá",
       pathImg:
         "https://salt.tikicdn.com/cache/100x100/ts/upload/20/68/cf/6d4adbdbcd1c35b0a438a655d9a420d0.png.webp",
+        path:'/outstanding'
     },
     {
       name: "TechFast",
@@ -114,7 +115,7 @@ function Home() {
           <ul className=" flex  items-start flex-col   w-full overflow-y-auto ">
             {listOutstand.map((product, index) => {
               return (
-                <Link to="/cart" className="w-full" key={index}>
+                <Link to={product.path} className="w-full" key={index}>
                   <li className="py-[10px]  pl-8 hover:bg-slate-100 w-full rounded-lg flex items-center ">
                     <img
                       className="w-[32px] h-[32px]  rounded-lg text-[1.3rem] mr-3"
