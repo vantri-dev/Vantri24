@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
 export default function Product() {
   const [products,setProducts]=useState([])
   const [showProduct,setShowProduct]=useState(15)
@@ -25,6 +26,7 @@ const handleShowProduct = ()=>{
         products.slice(0,showProduct).map((product,index)=>{
         return (
         <div key={index} className=' col-span-1  w-full max-h-[520px]'>
+          <Link to='/productPage'>
            <div className="w-[200px] border rounded  bg-white   cursor-pointer transition-all ease-out translate-y-0 hover:-translate-y-[3px] hover:border-violet">
             <div className=" w-full  ">
               <img
@@ -60,6 +62,7 @@ const handleShowProduct = ()=>{
               </div>
             </div>
           </div>
+          </Link>
         </div>
         )  
         })

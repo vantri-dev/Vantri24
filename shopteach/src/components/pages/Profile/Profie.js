@@ -72,7 +72,7 @@ export default function Profile() {
   };
 
   return (
-    <div className=" grid grid-cols-5  bg-gray-100 px-[100px]  gap-[12px] pt-10px "> 
+    <div className=" grid grid-cols-5  bg-gray-100 px-[100px]  gap-[12px] pt-10px ">
       <div className="flex flex-wrap col-span-1 ">
         <div className="p-[10px] bg-white w-full  flex flex-col md:flex  rounded-sm h-[502px] ">
           <nav>
@@ -83,11 +83,7 @@ export default function Profile() {
                   key={index}
                   className=" flex items-center text-[1.05rem] text-textword font-medium py-2.5 pr-[23px] pl-2 my-4 rounded transition duration-200 hover:bg-gradient-to-r hover:bg-[#f1f5f9]    cursor-pointer "
                 >
-                 
-                  <div className="mr-[10px] pl-0 text-[1.5rem]">
-                  
-                   
-                  </div>
+                  <div className="mr-[10px] pl-0 text-[1.5rem]"></div>
 
                   <span
                     className={

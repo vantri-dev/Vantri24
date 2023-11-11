@@ -72,7 +72,7 @@ export default function TrademarkTwo() {
                     <span className="text-[1.09rem] text-violet font-bold">
                      {product.currentprice.toFixed(3)}đ
                     </span>
-                  </div>
+                    </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       <p className=" font-medium text-[0.85rem] text-[#cbd5e1] line-through">

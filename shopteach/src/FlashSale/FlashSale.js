@@ -97,7 +97,7 @@ export default function FlashSale() {
             return (
               <li
                 key={i}
-                className="  white border   rounded cursor-pointer hover:border-violet   ease-out   duration-1000"
+                className="  border   rounded cursor-pointer hover:border-violet   ease-out   duration-1000"
               >
                 <span className="text-[1.28rem] font-sans  text-slate-500 hover:text-violet py-4 px-9  flex items-center gap-1  ">
                   {menu.icon}

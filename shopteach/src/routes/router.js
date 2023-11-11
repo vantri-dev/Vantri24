@@ -10,6 +10,7 @@ import BrandPhone from "../BrandProduct/BrandPhone/BrandPhone"
 import PracticalShipping from "../practical/FreeShiping/PracticalShipping"
 import FlashSale from "../FlashSale/FlashSale"
 import Outstanding from "../Outstanding/Outstanding"
+import ProductPage from "../ProductPage/ProductPage"
 const publicRouter=[
     {
         path:'/',
@@ -62,6 +63,10 @@ const publicRouter=[
         path:'/outstanding',
         component:Outstanding
     },
+    {
+        path:'/productpage',
+        component:ProductPage
+    },
 
 ]
 
@@ -69,3 +74,9 @@ export {
   
     publicRouter
 }
+{/* <div
+className="w-[95%] h-full    bg-contain bg-no-repeat    duration-700 ease-in-out  "
+style={{
+  backgroundImage: `url(${listImgProduct[currentIndex].imgProduct})`,
+}}
+></div> */}
