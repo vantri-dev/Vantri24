@@ -5,7 +5,9 @@ module.exports = {
     extend: {
       boxShadow: {
         boxshadowbt: "rgb(0 0 0 / 12%) 0px 5px 12px",
+     
       },
+     
       fontFamily: {
         inter: ['"Inter"', "ui-sans-serif"],
       },

@@ -74,9 +74,3 @@ export {
   
     publicRouter
 }
-{/* <div
-className="w-[95%] h-full    bg-contain bg-no-repeat    duration-700 ease-in-out  "
-style={{
-  backgroundImage: `url(${listImgProduct[currentIndex].imgProduct})`,
-}}
-></div> */}

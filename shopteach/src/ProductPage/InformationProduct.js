@@ -7,10 +7,16 @@ import AddProduct from "./AddProduct";
 export function InformationProduct(props) {
   const [SelectProduct, setSelectProduct] = useState(false);
   const [changeColor, setChangeColor] = useState(false);
+  const [selectProductCapacity, setSelectProductCapacity] = useState(false);
   const { getChangeImage } = props;
   const handleSelectProduct = (data) => {
     setSelectProduct(data);
   };
+
+  const handleSelectProductCapacity = (data) => {
+    setSelectProductCapacity(data);
+  };
+
   const hanldeChangeColorProduct = (data) => {
     setChangeColor(data);
   };
@@ -41,7 +47,7 @@ export function InformationProduct(props) {
               2k <span className="text-[1.1rem] text-slate-500">Đã bán</span>
             </span>
           </div>
-          <div className="py-2 mt-1">
+          <div className="py-1 mt-1">
             <span className="text-[1rem] font-semibold">
               Thương hiệu:
               <span className="  font-medium text-violet"> Apple</span>
@@ -60,7 +66,7 @@ export function InformationProduct(props) {
             <span className="text-[1.1rem]  font-bold">Màu sắc</span>
             <div className="flex items-center cursor-pointer">
               <div
-                onClick={()=>handleSelectProduct(false)}
+                onClick={() => handleSelectProduct(false)}
                 className={
                   SelectProduct === false
                     ? "flex items-center w-15 h-14  mx-2 my-2 border-violet border-2  rounded-md relative"
@@ -83,7 +89,7 @@ export function InformationProduct(props) {
                 </div>
               </div>
               <div
-                onClick={()=>handleSelectProduct(true)}
+                onClick={() => handleSelectProduct(true)}
                 className={
                   SelectProduct === true
                     ? "flex items-center w-15 h-14  mx-2 my-2 border-violet border-2  rounded-md relative"
@@ -92,7 +98,7 @@ export function InformationProduct(props) {
               >
                 <div
                   className="flex items-center w-full h-full"
-                  onClick={()=>hanldeChangeColorProduct(true)}
+                  onClick={() => hanldeChangeColorProduct(true)}
                 >
                   <img
                     className="w-full h-[90%]  object-cover mx-2  my-2 "
@@ -107,8 +113,79 @@ export function InformationProduct(props) {
               </div>
             </div>
           </div>
+          <div className="py-2">
+            <span className="text-[1.1rem]  font-bold">Dung lượng</span>
+            <div className="flex items-center cursor-pointer">
+              <div
+                onClick={() => handleSelectProductCapacity(false)}
+                className={
+                  selectProductCapacity === false
+                    ? "flex items-center w-15 h-[40px]  mx-2 my-2 border-violet border-2  rounded-md relative"
+                    : "flex items-center w-15 h-[40px] mx-2 my-2 border  rounded-md  opacity-50 "
+                }
+              >
+                <div className="flex items-center w-full h-full">
+                  <span className=" px-3 first-letter:  text-textword font-sans">
+                    512GB{" "}
+                  </span>
+                </div>
+                <div className=" absolute right-0 top-0">
+                  <BsCheck className="w-3 bg-violet text-white  rounded-bl-sm h-3" />
+                </div>
+              </div>
+              <div
+                onClick={() => handleSelectProductCapacity(true)}
+                className={
+                  selectProductCapacity === true
+                    ? "flex items-center w-15 h-[40px]   mx-2 my-2 border-violet border-2  rounded-md relative"
+                    : "flex items-center w-15 h-[40px]  mx-2 my-2  border  rounded-md  opacity-50 "
+                }
+              >
+                <div className="flex items-center w-full h-full">
+                  <span className=" px-6   text-textword font-sans">1TB</span>
+                </div>
+                <div className=" absolute right-0 top-0">
+                  <BsCheck className="w-3 bg-violet text-white  rounded-bl-sm h-3" />
+                </div>
+              </div>
+            </div>
+          </div>
           <QuantityProduct />
           <AddProduct />
+          <div className=" ">
+            <ul className="flex items-center justify-around  mt-[45px]">
+              <li className="flex items-center">
+                <img
+                  alt=""
+                  className="w-7 h-7 mx-1"
+                  src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/6c502a2641457578b0d5f5153b53dd5d.png"
+                />
+                <span className="text-[1rem]  font-sans  font-medium">
+                  7 Ngày trả hàng miễn phí
+                </span>
+              </li>
+              <li className="flex items-center">
+                <img
+                  alt=""
+                  className="w-7 h-7  mx-1"
+                  src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/511aca04cc3ba9234ab0e4fcf20768a2.png"
+                />
+                <span className="text-[1rem]  font-sans  font-medium">
+                  Hàng chính hãng 100%
+                </span>
+              </li>
+              <li className="flex items-center">
+                <img
+                  alt=""
+                  className="w-7 h-7  mx-1"
+                  src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/16ead7e0a68c3cff9f32910e4be08122.png"
+                />
+                <span className="text-[1rem]  font-sans  font-medium">
+                  Miễn phí vận chuyển
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </>

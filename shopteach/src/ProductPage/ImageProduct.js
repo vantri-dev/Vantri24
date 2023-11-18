@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 export default function ImageProduct(props) {
   const listImgProduct = [
@@ -73,7 +73,7 @@ export default function ImageProduct(props) {
     },
   ];
   const { changeColorImage } = props;
-  console.log(changeColorImage);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const handleAcitveIMage = (i) => {
     setCurrentIndex(i);
@@ -89,7 +89,7 @@ export default function ImageProduct(props) {
   return (
     <div className=" col-span-1">
       <div
-        className="     bg-contain bg-no-repeat    duration-700 ease-in-out w-[95%] h-[500px] object-contain border rounded-md mx-5 my-5 "
+        className="     bg-contain bg-no-repeat    duration-700 ease-in-out w-[95%] h-[504px] object-contain border rounded-md mx-5 my-5 "
         style={{
           backgroundImage: `url( ${
             changeColorImage === true

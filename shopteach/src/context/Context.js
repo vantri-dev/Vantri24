@@ -17,7 +17,7 @@ export function Context({ children }) {
   const [currentUser, setcurrentUser] = useState();
   const [loading, setLoading] = useState(true);
   console.log(currentUser);
-  const [error, setError] = useState("");
+  const [, setError] = useState("");
   function signUp(email, password) {
     return auth.createUserWithEmailAndPassword(email, password);
   }
@@ -53,7 +53,7 @@ export function Context({ children }) {
   }, []);
   //CountDown
    function CountDown(){
-    const time = "Nov 09 2023 23:59:59"
+    const time = "Mar 09 2024 23:59:59"
     return time
    }
 

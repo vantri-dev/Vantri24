@@ -57,7 +57,7 @@ export default function TrademarkTwo() {
               <div className="w-[190px] border rounded  bg-white  max-h-[520px] cursor-pointer transition-all ease-out translate-y-0 hover:-translate-y-[3px] hover:border-violet">
                 <div className=" w-full  ">
                   <img
-                    className="w-[170px] h-[190px] flex  m-auto border"
+                    className="w-[170px] h-[190px] flex  m-auto border  "
                     alt=""
                     src={product.imgProduct}
                   />

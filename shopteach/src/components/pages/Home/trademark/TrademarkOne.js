@@ -54,10 +54,10 @@ export default function TrademarkOne() {
           listProducts.map((product,index)=>{
             return(
               <div key={index}  className=" col-span-1 ">
-              <div className="w-[190px] border rounded  bg-white  max-h-[520px] cursor-pointer transition-all ease-out translate-y-0 hover:-translate-y-[3px] hover:border-violet">
+              <div className="w-[190px] border rounded  bg-white  max-h-[520px] cursor-pointer transition-all ease-out translate-y-0 hover:-translate-y-[3px] hover:border-violet ">
                 <div className=" w-full  ">
                   <img
-                    className="w-[170px] h-[190px] flex  m-auto border"
+                    className="w-[170px] h-[190px] flex  m-auto border  "
                     alt=""
                     src="https://salt.tikicdn.com/cache/280x280/ts/product/e2/79/3a/99fb3f8dd32c331e6535e5aae5d51f98.jpg.webp"
                   />
