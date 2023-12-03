@@ -5,6 +5,7 @@ import React from 'react'
 import ReactPaginate from 'react-paginate';
 export default function Pagination() {
      const pageProduct = useContext(PagesContext)
+
      
   return (
 
@@ -13,7 +14,7 @@ export default function Pagination() {
       breakLabel="..."
       nextLinkClassName='text-[1.5rem] text-slate-400  pl-1  '
       nextLabel=">"
-      onPageChange={pageProduct.handlePageClick}
+      onPageChange={pageProduct.handlePageClick }
       pageRangeDisplayed={4}
       pageLinkClassName='  text-[1.2rem]   text-slate-400  mx-6'
       pageCount={pageProduct.pageCount}

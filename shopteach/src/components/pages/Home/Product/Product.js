@@ -3,9 +3,10 @@ import React from 'react'
 import { useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 export default function Product() {
+
   const [products,setProducts]=useState([])
   const [showProduct,setShowProduct]=useState(15)
-
+  
   useEffect(()=>{
     const dataProducts = async ()=>{
          const repAPi= await  fetch('https://jsonplaceholder.typicode.com/comments')
@@ -27,7 +28,7 @@ const handleShowProduct = ()=>{
         return (
         <div key={index} className=' col-span-1  w-full max-h-[520px]'>
           <Link to='/productPage'>
-           <div className="w-[200px] border rounded  bg-white   cursor-pointer transition-all ease-out translate-y-0 hover:-translate-y-[3px] hover:border-violet">
+           <div className=" border rounded  bg-white   cursor-pointer transition-all ease-out translate-y-0 hover:-translate-y-[3px] hover:border-violet">
             <div className=" w-full  ">
               <img
                 className="w-[170px] h-[190px] flex  m-auto border"
@@ -37,7 +38,7 @@ const handleShowProduct = ()=>{
             </div>
             <div className=" w-full mt-2 px-2 ">
               <p className="  line-clamp-2   text-textword font-medium text-[0.95rem]  ">
-            {product.body}
+            {product.name}
               </p>
             </div>
             <div className="w-full px-2 py-2 ">

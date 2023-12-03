@@ -11,6 +11,7 @@ import PracticalShipping from "../practical/FreeShiping/PracticalShipping"
 import FlashSale from "../FlashSale/FlashSale"
 import Outstanding from "../Outstanding/Outstanding"
 import ProductPage from "../ProductPage/ProductPage"
+import ProductFilterPhone from "../components/pages/ProductFilterSearch/ProductPhone/ProductFilterPhone"
 const publicRouter=[
     {
         path:'/',
@@ -66,6 +67,10 @@ const publicRouter=[
     {
         path:'/productpage',
         component:ProductPage
+    },
+    {
+        path:'/productFilterPhone',
+        component:ProductFilterPhone
     },
 
 ]

@@ -16,8 +16,9 @@ export function Context({ children }) {
   //Auth
   const [currentUser, setcurrentUser] = useState();
   const [loading, setLoading] = useState(true);
-  console.log(currentUser);
   const [, setError] = useState("");
+  //Get FilterProduct
+  const [filterProduct,setFilterProduct]=useState([])
   function signUp(email, password) {
     return auth.createUserWithEmailAndPassword(email, password);
   }
@@ -57,7 +58,10 @@ export function Context({ children }) {
     return time
    }
 
- 
+ //Get Filter Product 
+ function getFilterProductContext(data){
+     setFilterProduct(data)
+ }
 
   const value = {
     //Auth
@@ -69,8 +73,10 @@ export function Context({ children }) {
     handleLoginGoogle,
     hanldeLoginFacebook,
     //CountDown
-    CountDown
-    //Profile
+    CountDown,
+    //Get filter
+    getFilterProductContext,
+    filterProduct
    
   };
   return (

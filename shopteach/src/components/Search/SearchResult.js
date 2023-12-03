@@ -3,8 +3,7 @@ import { RiCloseFill } from "react-icons/ri";
 import "./SearchResult.css";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import * as Servies from "../../apiServies/searchSevries";
- 
+import { useAuth } from "../../context/Context";
 import Wrapper from "../Popper/Wrapper";
 import useDebounce from "../hooks/useDebounnce";
 
@@ -16,11 +15,13 @@ function SearchResult() {
   const inputRef = useRef();
   const resultRef = useRef();
   const debounce = useDebounce(valueInput, 150);
+  const { getFilterProductContext } = useAuth();
   const handleSearch = (e) => {
     setvalueInput(e.target.value);
-    const newResult = dataProduct.filter((value) => {
-      return value.full_name.toLowerCase().includes(valueInput.toLowerCase());
+    let newResult = dataProduct.filter((value) => {
+      return value.name.toLowerCase().includes(valueInput);
     });
+    console.log(newResult);
     setsearchResult(newResult);
     if (valueInput === "") {
       setsearchResult([]);
@@ -34,7 +35,10 @@ function SearchResult() {
       return;
     }
     const fetchApi = async () => {
-      const data = await Servies.searchServies(debounce);
+      const getApi = await fetch(
+        "https://jsonplaceholder.typicode.com/comments"
+      );
+      const data = await await getApi.json();
       setdataProduct(data);
     };
     fetchApi();
@@ -49,6 +53,12 @@ function SearchResult() {
     const hiddenResult = (e) => {
       if (!resultRef.current.contains(e.target)) {
         setshowResult(false);
+        const clearProduct = () => {
+          setsearchResult([]);
+          setvalueInput("");
+          inputRef.current.focus();
+        };
+        clearProduct();
       }
     };
     document.addEventListener("mousedown", hiddenResult);
@@ -56,6 +66,15 @@ function SearchResult() {
       document.removeEventListener("mousedown", hiddenResult);
     };
   }, []);
+  const hanldeFilterProduct = () => {
+    const flattenFilterProduct = searchResult.slice(0, searchResult.length);
+    const flattenFilter = flattenFilterProduct.reduce((prev, cur) => {
+      return prev.concat(Array.isArray(cur) ? flattenFilter(cur) : cur);
+    }, []);
+
+    return getFilterProductContext(flattenFilter);
+  };
+
   return (
     <div className="flex relative items-center  " ref={resultRef}>
       <input
@@ -86,17 +105,20 @@ function SearchResult() {
         <div className="absolute top-11 w-full  ">
           <Wrapper>
             <div>
-              <ul className="pl-0  max-h-72 cursor-pointer">
-                {searchResult.slice(0, 15).map((result, index) => {
+              <ul className="pl-0   max-h-96 cursor-pointer">
+                {searchResult.slice(0, 9).map((result, index) => {
                   return (
                     <li key={index} className="hover:bg-f5f5f5 ">
-                      <Link to={`/cart`}>
+                      <Link
+                        to={`/productFilterPhone`}
+                        onClick={hanldeFilterProduct}
+                      >
                         <div className="flex items-center">
                           <div id="result_icon" className=" px-10px py-10px">
                             <AiOutlineSearch />
                           </div>
                           <span className=" text-17 font-normal pl-7px">
-                            {result.full_name}
+                            {result.name}
                           </span>
                         </div>
                       </Link>

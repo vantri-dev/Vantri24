@@ -18,7 +18,7 @@ export default function ProductPage() {
   };
 
   return (
-    <div className=" bg-gray-100">
+    <div className=" bg-gray-100  ">
       <div className=" w-full pt-[10px]   px-[105px]">
         <div className=" flex items-center mb-2  ">
           <Link to="/">
