@@ -21,7 +21,7 @@ export default function QuantityProduct() {
       <div className="ml-5">
         <ul className="flex items-center gap-2 border  cursor-pointer ">
           <li onClick={DiscountProduct} className="px-2 text-[1.5rem]">-</li>
-          <li className=" border-l border-r px-4 py-[5px]   font-bold">{quantityProduct}</li>
+          <li className=" border-l border-r px-4 py-[5px] w-[46.5px]  font-bold">{quantityProduct}</li>
           <li onClick={IncreaseProduct} className="px-2 text-[1.5rem]">+</li>
         </ul>
       </div>

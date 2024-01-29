@@ -1,17 +1,17 @@
-import React from "react";
+import React  from "react";
 import { AiTwotoneStar } from "react-icons/ai";
 import { BsCheck } from "react-icons/bs";
 import { useState } from "react";
 import QuantityProduct from "./QuantityProduct";
-import AddProduct from "./AddProduct";
+import { useAuth } from "../context/Context";
 export function InformationProduct(props) {
   const [SelectProduct, setSelectProduct] = useState(false);
   const [changeColor, setChangeColor] = useState(false);
   const [selectProductCapacity, setSelectProductCapacity] = useState(false);
-  const { getChangeImage } = props;
+   const { getChangeImage}=useAuth();
   const handleSelectProduct = (data) => {
     setSelectProduct(data);
-  };
+  };  
 
   const handleSelectProductCapacity = (data) => {
     setSelectProductCapacity(data);
@@ -20,10 +20,11 @@ export function InformationProduct(props) {
   const hanldeChangeColorProduct = (data) => {
     setChangeColor(data);
   };
-  getChangeImage(changeColor);
+    getChangeImage(changeColor);
+ 
   return (
     <>
-      <div className=" col-span-2">
+      <div className=" w-full">
         <div className="w-full px-5 py-5 ">
           <span className="flex flex-wrap text-[1.5rem]  font-black">
             Apple iPhone 13 Chính Hãng Tại Thị Trường Việt Nam
@@ -126,7 +127,7 @@ export function InformationProduct(props) {
               >
                 <div className="flex items-center w-full h-full">
                   <span className=" px-3 first-letter:  text-textword font-sans">
-                    512GB{" "}
+                    512GB
                   </span>
                 </div>
                 <div className=" absolute right-0 top-0">
@@ -151,41 +152,8 @@ export function InformationProduct(props) {
             </div>
           </div>
           <QuantityProduct />
-          <AddProduct />
-          <div className=" ">
-            <ul className="flex items-center justify-around  mt-[45px]">
-              <li className="flex items-center">
-                <img
-                  alt=""
-                  className="w-7 h-7 mx-1"
-                  src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/6c502a2641457578b0d5f5153b53dd5d.png"
-                />
-                <span className="text-[1rem]  font-sans  font-medium">
-                  7 Ngày trả hàng miễn phí
-                </span>
-              </li>
-              <li className="flex items-center">
-                <img
-                  alt=""
-                  className="w-7 h-7  mx-1"
-                  src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/511aca04cc3ba9234ab0e4fcf20768a2.png"
-                />
-                <span className="text-[1rem]  font-sans  font-medium">
-                  Hàng chính hãng 100%
-                </span>
-              </li>
-              <li className="flex items-center">
-                <img
-                  alt=""
-                  className="w-7 h-7  mx-1"
-                  src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/16ead7e0a68c3cff9f32910e4be08122.png"
-                />
-                <span className="text-[1rem]  font-sans  font-medium">
-                  Miễn phí vận chuyển
-                </span>
-              </li>
-            </ul>
-          </div>
+          {/* <AddProduct /> */}
+         
         </div>
       </div>
     </>

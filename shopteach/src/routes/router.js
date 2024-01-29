@@ -1,5 +1,5 @@
 import Home from "../components/pages/Home/home"
-import Cart from "../components/pages/Cart/cart"
+import CartShopping from "../components/pages/Cart/cartShopping"
 import SignIn from "../components/pages/UserAuth/signIn/signIn"
 import SignUp from "../components/pages/UserAuth/signUp/signUp"
 import ForgotPassword from "../components/pages/ForgotPassword/ForgotPassword"
@@ -19,7 +19,7 @@ const publicRouter=[
     },
     {
         path:'/cart',
-        component:Cart
+        component:CartShopping
     },
     {
         path:'/signIn',
@@ -65,7 +65,7 @@ const publicRouter=[
         component:Outstanding
     },
     {
-        path:'/productpage',
+        path:'/productpage/:idProduct',
         component:ProductPage
     },
     {

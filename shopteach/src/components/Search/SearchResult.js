@@ -21,7 +21,6 @@ function SearchResult() {
     let newResult = dataProduct.filter((value) => {
       return value.name.toLowerCase().includes(valueInput);
     });
-    console.log(newResult);
     setsearchResult(newResult);
     if (valueInput === "") {
       setsearchResult([]);

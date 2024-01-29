@@ -1,12 +1,11 @@
 import React from 'react'
-
 import { useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
-export default function Product() {
 
+export default function Product() {
   const [products,setProducts]=useState([])
   const [showProduct,setShowProduct]=useState(15)
-  
+ 
   useEffect(()=>{
     const dataProducts = async ()=>{
          const repAPi= await  fetch('https://jsonplaceholder.typicode.com/comments')
@@ -14,11 +13,11 @@ export default function Product() {
          setProducts(data)
     }
     dataProducts()
-
   },[])
 const handleShowProduct = ()=>{
   setShowProduct((prev)=> prev + 15)
 }
+
   return (
   <>
 
@@ -26,8 +25,9 @@ const handleShowProduct = ()=>{
       {
         products.slice(0,showProduct).map((product,index)=>{
         return (
-        <div key={index} className=' col-span-1  w-full max-h-[520px]'>
-          <Link to='/productPage'>
+        <div key={index} className=' col-span-1  w-full max-h-[520px]' >
+        
+          <Link to={`/productpage/${product.id}`}>
            <div className=" border rounded  bg-white   cursor-pointer transition-all ease-out translate-y-0 hover:-translate-y-[3px] hover:border-violet">
             <div className=" w-full  ">
               <img

@@ -1,6 +1,6 @@
 import cartEmty from "../../img/cart.png";
 import { Link } from "react-router-dom";
-function Cart() {
+function CartEmty() {
   return (
     <div className="w-full  flex   bg-gray-100  ">
       <div className=" m-auto mt-[7%] flex flex-col">
@@ -21,4 +21,4 @@ function Cart() {
     </div>
   );
 }
-export default Cart;
+export default CartEmty;

@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
-export default function ImageProduct(props) {
+import { useAuth } from "../context/Context";
+export default function ImageProduct() {
   const listImgProduct = [
     {
       imgProductColor1:
@@ -72,8 +73,8 @@ export default function ImageProduct(props) {
         "https://salt.tikicdn.com/cache/750x750/ts/product/dc/cd/d7/77bd1484e7bcd6887fcbbcb8a7939157.jpg.webp",
     },
   ];
-  const { changeColorImage } = props;
 
+const {changeImage}=useAuth()
   const [currentIndex, setCurrentIndex] = useState(0);
   const handleAcitveIMage = (i) => {
     setCurrentIndex(i);
@@ -92,7 +93,7 @@ export default function ImageProduct(props) {
         className="     bg-contain bg-no-repeat    duration-700 ease-in-out w-[95%] h-[504px] object-contain border rounded-md mx-5 my-5 "
         style={{
           backgroundImage: `url( ${
-            changeColorImage === true
+            changeImage === true
               ? listImgProduct[currentIndex].imgProductColor1
               : listImgProduct[currentIndex].imgProductColor2
           })`,
@@ -119,7 +120,7 @@ export default function ImageProduct(props) {
                   <img
                     alt=""
                     src={
-                      changeColorImage === true
+                      changeImage === true
                         ? img.imgProductColor1
                         : img.imgProductColor2
                     }

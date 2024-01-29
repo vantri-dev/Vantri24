@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import avataEmty from "../../img/emty.jpg";
 import { AiOutlineCloudUpload } from "react-icons/ai";
+import { BsCheckLg } from "react-icons/bs";
+import { BiErrorCircle } from "react-icons/bi";
 
 
 import React from "react";
@@ -26,8 +28,8 @@ export default function UserProfile(props) {
   const db = getDatabase();
   const [dataUser, setDataUser] = useState([]);
   const [valueInput, setValueInput] = useState("");
-  const [success, setSuccess] = useState("");
-  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   //getData Child
   const { handleDataChild } = props;
@@ -76,10 +78,10 @@ export default function UserProfile(props) {
           id,
           avata: avata ? avata : avataEmty,
         });
-        setSuccess("Đã lưu");
+        setSuccess(true);
       
       } catch (error) {
-        setError("Lưu không thành công");
+        setError(false);
       }
     };
     handleCreate();
@@ -94,10 +96,10 @@ export default function UserProfile(props) {
         id,
         avata: avata ? avata : avataEmty,
       });
-      setSuccess("Cập nhật thành công");
+      setSuccess(true);
     } catch (error) {
-     console.log(error)
-      setError("Cập nhật thất bại");
+    
+      setError(false);
       
     }
   };
@@ -121,8 +123,8 @@ export default function UserProfile(props) {
   useEffect(() => {
     const clear = setTimeout(() => {
       if (success || error) {
-        setSuccess("");
-        setError("");
+        setSuccess(false);
+        setError(false);
       }
     }, 4000);
     return () => clearTimeout(clear);
@@ -135,23 +137,31 @@ export default function UserProfile(props) {
         
         <div className=" ">
           <div className="bg-white rounded-sm  px-5  pt-[10px] pb-9 relative ">
-            {success && (
-              <div
-                className="bg-teal-100  border border-teal-300   text-teal-500 px-4 py-[5px] rounded  absolute  w-[62%] top-0 left-5 mt-[2px]"
-                role="alert"
-              >
-                <strong className="font-bold">{success}</strong>
-                <span className="absolute top-0 bottom-0 right-0 px-4 py-[7px]"></span>
-              </div>
-            )}
-            {error && (
-              <div
-                className="bg-red-100 border border-red-300 text-red-500 px-4 py-[7px] rounded w-[62%] top-0 left-5  mt-[2px] "
-                role="alert"
-              >
-                <strong className="font-bold pl-3">{error}</strong>
-              </div>
-            )}
+          <div
+        className={
+          success === true
+            ? " fixed  bg-zinc-700 opacity-[0.85]  top-[35%] left-[40%] w-[23%] py-7 rounded px-1 justify-center items-center flex flex-col"
+            : "hidden"
+        }
+      >
+        <BsCheckLg className=" text-[1rem] text-white w-[40px] h-[40px] rounded-full bg-teal-400 mb-4" />
+        <span className="text-white text-[1rem] w-full  text-center">
+        Cập nhật thành công
+        </span>
+      </div>
+          <div
+        className={
+          error === true
+            ? " fixed  bg-zinc-700 opacity-[0.85]  top-[35%] left-[40%] w-[23%] py-7 rounded px-1 justify-center items-center flex flex-col"
+            : "hidden"
+        }
+      >
+        <BiErrorCircle className=" text-[1rem]  w-[40px] h-[40px] rounded-full    text-red-600 mb-4" />
+        <span className="text-white text-[1rem] w-full  text-center">
+       Cập nhật thất bại!
+        </span>
+      </div>
+          
             <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
               <div className="lg:col-span-2 border-r-slate-300 border  border-transparent pr-3">
                 <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">

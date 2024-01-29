@@ -1,58 +1,55 @@
 import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
-export default function DescriptionProduct() {
+export default function DescriptionProduct(props) {
   const [hiidenContext, setHiddenContext] = useState(false);
+  const  {productId}=  props;
   const handleHiddenContext = () => {
     setHiddenContext(!hiidenContext);
   };
+
   return (
     <div className=" bg-slate-100">
       <div className=" bg-white ">
-        <div className="    ">
-          <div className="px-5 py-5">
-            <span className="text-[1.1rem]  font-light  text-slate-500 uppercase">
-              Chi tiet san pham
-            </span>
-          </div>
-          <div className=" px-10 py-2    bg-white   ">
-            <p>
-              iPhone 14 128GB - Thiết kế mới lạ, hiệu năng vượt trội iPhone 14
-              128GB vừa qua đã được ra mắt lại tiếp tục làm khuấy động thị
-              trường smartphone và được đông đảo iFan săn đón nhiệt tình. Siêu
-              phẩm iPhone 14 có nhiều cải tiến về thiết kế cũng như hiệu năng
-              mang đến nhiều trải nghiệm thú vị cho người dùng.
-              <p
-                className={
-                  hiidenContext === true
-                    ? "block"
-                    : " my-2 text-opacity-75 text-textword"
-                }
-              >
-                Thiết kế có nhiều thay đổi, mặt trước sang hơn Ở phiên bản
-                iPhone 14 128GB có thiết kế có nhiều khác biệt so với thế hệ
-                trước. Phiên bản này vẫn sở hữu ngoại hình với những điểm nổi
-                bật như những người đàn anh trước đây. Với trọng lượng chỉ vỏn
-                vẹn 172g, được thiết kế nguyên khối mang đến cho người dùng một
-                thiết kế nhỏ gọn, tiện lợi khi sử dụng.
-              </p>
-              <p
-                className={
-                  hiidenContext === true
-                    ? "block"
-                    : " text-opacity-50 text-textword"
-                }
-              >
-                Với thiết kế khung viền phẳng, cùng với bốn góc bo tròn sẽ mang
-                đến cảm giác cầm nắm thoải mái, chắc chắn hơn. Đồng thời, năm
-                nay nhà Apple cũng trang bị đa dạng màu sắc trẻ trung, năng động
-                như: Đen (Midnight), Trắng ( Starlight) , Đỏ ( Product Red),
-                Xanh dương (Blue), Tím (Purple). Cho người dùng thoải mái lựa
-                chọn màu sắc phù hợp với cá tính và sở thích của bản thân.
-              </p>
-            </p>
-          </div>
+        <div className="px-5 py-5">
+          <span className="text-[1.1rem]  font-light  text-slate-500 uppercase">
+            Chi tiet san pham
+          </span>
         </div>
+        <div className=" px-10 py-2    bg-white   ">
+          <p>
+          {productId.body}
+            <p
+              className={
+                hiidenContext === true
+                  ? "block"
+                  : " my-2 text-opacity-75 text-textword"
+              }
+            >
+              Thiết kế có nhiều thay đổi, mặt trước sang hơn Ở phiên bản iPhone
+              14 128GB có thiết kế có nhiều khác biệt so với thế hệ trước. Phiên
+              bản này vẫn sở hữu ngoại hình với những điểm nổi bật như những
+              người đàn anh trước đây. Với trọng lượng chỉ vỏn vẹn 172g, được
+              thiết kế nguyên khối mang đến cho người dùng một thiết kế nhỏ gọn,
+              tiện lợi khi sử dụng.
+            </p>
+            <p
+              className={
+                hiidenContext === true
+                  ? "block"
+                  : " text-opacity-50 text-textword"
+              }
+            >
+              Với thiết kế khung viền phẳng, cùng với bốn góc bo tròn sẽ mang
+              đến cảm giác cầm nắm thoải mái, chắc chắn hơn. Đồng thời, năm nay
+              nhà Apple cũng trang bị đa dạng màu sắc trẻ trung, năng động như:
+              Đen (Midnight), Trắng ( Starlight) , Đỏ ( Product Red), Xanh dương
+              (Blue), Tím (Purple). Cho người dùng thoải mái lựa chọn màu sắc
+              phù hợp với cá tính và sở thích của bản thân.
+            </p>
+          </p>
+        </div>
+
         <div
           className={
             hiidenContext === true

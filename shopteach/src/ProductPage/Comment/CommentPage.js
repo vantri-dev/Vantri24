@@ -40,6 +40,7 @@ export default function CommentPage() {
   const getFillterComment = (data) => {
     setFillterComment(data);
   };
+  // console.log(fillterComment)
   return (
     <div className="w-full bg-white rounded">
       <CommentProduct getFillterComment={getFillterComment} />

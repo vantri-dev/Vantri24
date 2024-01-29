@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 export const PagesContextFilter = createContext();
 export default function ListFilterProductPhone() {
   const {filterProduct}= useAuth()
-  console.log(filterProduct)
   const [products, setProducts] = useState([]);
   const [offset, setOffset] = useState(0);
   const itemsPerPage = 20;
@@ -22,7 +21,6 @@ export default function ListFilterProductPhone() {
   const pageCount = Math.ceil(products.length / itemsPerPage);
   const handlePageClick = (e) => {
     const newOffset = (e.selected * itemsPerPage) % products.length;
-
     setOffset(newOffset);
   };
   return (
