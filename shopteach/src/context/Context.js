@@ -30,8 +30,9 @@ export function Context({ children }) {
   //Get Handle Product
   const [deleteProduct, setDeleteProduct] = useState([]);
   //Cart Product
-  const [cartProduct, setCatProduct] = useState([]);
-
+  const GetProductCart = JSON.parse(localStorage.getItem('productCart' || []))
+  const [cartProduct, setCartProduct] = useState(GetProductCart !== null ? GetProductCart :[]);
+  //Cart Delete Product
   function signUp(email, password) {
     return auth.createUserWithEmailAndPassword(email, password);
   }
@@ -80,7 +81,7 @@ export function Context({ children }) {
     setChangeImage(data);
   }
 
-  //Handle Product Curret
+  //Handle Product Current
   function handleProductCurrent(product) {
     setProductCurrent(product);
   }
@@ -88,8 +89,17 @@ export function Context({ children }) {
     setDeleteProduct(product);
   }
   function handleAddCart(product) {
-    setCatProduct(product);
+    setCartProduct(product);
   }
+  localStorage.setItem('productCart',JSON.stringify(cartProduct))
+ //Get Delete Product
+function deleteProductCart(id){
+   const deleteCart = cartProduct.filter(item => {
+    return item.id !== id;
+  })
+  setCartProduct(deleteCart)
+}
+
 
   const value = {
     //Auth
@@ -118,6 +128,9 @@ export function Context({ children }) {
     deleteProduct,
     handleAddCart,
     cartProduct,
+    //Get Id Cart
+    deleteProductCart,
+   
   };
   return (
     <AuthProvider.Provider value={value}>

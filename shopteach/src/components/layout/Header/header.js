@@ -15,7 +15,7 @@ import { useState, useEffect, useRef } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 function Header() {
-  const { currentUser, hanldeSignOut,deleteProduct,cartProduct } = useAuth();
+  const { currentUser, hanldeSignOut, cartProduct } = useAuth();
   const [show, setShow] = useState(false);
   const userRef = useRef();
   const checkOrder = useRef();
@@ -44,7 +44,6 @@ function Header() {
       document.removeEventListener("mousedown", hiddenTab);
     };
   }, [showMenu]);
-
 
   return (
     <>
@@ -227,15 +226,30 @@ function Header() {
               </li>
 
               <li className="sm:pl-[50%] sm:pt-1 smm:pl-[45%] smm:pt-1 relative">
-                <Link to="/cart" className="flex items-center ">
-                  <AiOutlineShoppingCart className="text-[1.8rem] text-[#64748b]" />
-                  <span className="px-7px pt-4px mr-3 text-textword  sm:hidden smm:hidden">
-                    Giỏ Hàng
-                  </span>
-                </Link>
-                <div className="absolute top-[-17px] right-20 w-8 text-center   rounded-2xl border   bg-violet px-2">
-                  <span className="text-white  text-[0.95rem]">{cartProduct.length}</span>
-                </div>
+                {currentUser === null ? (
+                  <>
+                    <Link to="/signIn" className="flex items-center ">
+                      <AiOutlineShoppingCart className="text-[1.8rem] text-[#64748b]" />
+                      <span className="px-7px pt-4px mr-3 text-textword  sm:hidden smm:hidden">
+                        Giỏ Hàng
+                      </span>
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/cart" className="flex items-center ">
+                      <AiOutlineShoppingCart className="text-[1.8rem] text-[#64748b]" />
+                      <span className="px-7px pt-4px mr-3 text-textword  sm:hidden smm:hidden">
+                        Giỏ Hàng
+                      </span>
+                    </Link>
+                    <div className="absolute top-[-17px] right-20 w-8 text-center   rounded-2xl border   bg-violet px-2">
+                      <span className="text-white  text-[0.95rem]">
+                        {cartProduct.length}
+                      </span>
+                    </div>
+                  </>
+                )}
               </li>
             </ul>
           </div>
