@@ -49,11 +49,15 @@ function Header() {
     <>
       <header className=" flex items-center mmd:py-3 mmd:pb-4 ssm:py-3 ssm:pb-4  sm:py-3 sm:pb-4 smm:py-3 smm:pb-4 relative">
         <div className="xl:w-2/12  lg:w-2/12 md:1/12 xl:pl-8  md:pl-4 mmd:hidden mmd:w-0 ssm:hidden sm:w-2/12 smm:w-2/12 ">
+          <Link to='/'>
           <img
-            className="object-contain w-32 sm:hidden  smm:hidden"
+            className="object-contain w-32 sm:hidden  smm:hidden cursor-pointer"
             src={logo}
             alt=""
+
           />
+          </Link>
+    
           <AiOutlineMenu
             className=" hidden sm:block smm:block text-[1.4rem]   mt-[9px] text-fuchsia-500 cursor-pointer"
             onClick={() => setShowMenu(!showMenu)}

@@ -4,7 +4,6 @@ import { AiOutlineCloudUpload } from "react-icons/ai";
 import { BsCheckLg } from "react-icons/bs";
 import { BiErrorCircle } from "react-icons/bi";
 
-
 import React from "react";
 import { useState, useEffect } from "react";
 import {
@@ -21,7 +20,7 @@ export default function UserProfile(props) {
   //Avata
   const [img, setImg] = useState(null);
   const [avata, setAvata] = useState();
-//Storage
+  //Storage
   const storage = getStorage();
   //Databasae
   const id = uid();
@@ -33,7 +32,7 @@ export default function UserProfile(props) {
 
   //getData Child
   const { handleDataChild } = props;
-//Get Avata
+  //Get Avata
   const handleGetImg = (e) => {
     if (e.target.files[0]) {
       setImg(e.target.files[0]);
@@ -46,7 +45,6 @@ export default function UserProfile(props) {
       await uploadBytes(imageRef, img).then((snaphsot) => {
         getDownloadURL(snaphsot.ref).then((url) => {
           setAvata(url);
-         
         });
       });
     } catch (error) {
@@ -79,7 +77,6 @@ export default function UserProfile(props) {
           avata: avata ? avata : avataEmty,
         });
         setSuccess(true);
-      
       } catch (error) {
         setError(false);
       }
@@ -90,7 +87,7 @@ export default function UserProfile(props) {
   const handleUpdate = async () => {
     try {
       setSuccess("");
-        setError("");
+      setError("");
       await update(dataRef(db, `/${id}`), {
         valueInput,
         id,
@@ -98,9 +95,7 @@ export default function UserProfile(props) {
       });
       setSuccess(true);
     } catch (error) {
-    
       setError(false);
-      
     }
   };
   //Read Data
@@ -110,7 +105,7 @@ export default function UserProfile(props) {
       const data = snaphsot.val();
       if (data !== null) {
         // eslint-disable-next-line array-callback-return
-        Object.values(data).map((item) =>{
+        Object.values(data).map((item) => {
           setDataUser((prev) => [...prev, item]);
         });
       }
@@ -118,8 +113,8 @@ export default function UserProfile(props) {
   }, []);
   handleDataChild(dataUser);
 
- 
-//Clear success and error
+
+  //Clear success and error
   useEffect(() => {
     const clear = setTimeout(() => {
       if (success || error) {
@@ -129,39 +124,37 @@ export default function UserProfile(props) {
     }, 4000);
     return () => clearTimeout(clear);
   }, [success, error]);
-
-
+ 
   return (
     <>
       <div className="h-screen  bg-gray-100 mb-2 ">
-        
         <div className=" ">
           <div className="bg-white rounded-sm  px-5  pt-[10px] pb-9 relative ">
-          <div
-        className={
-          success === true
-            ? " fixed  bg-zinc-700 opacity-[0.85]  top-[35%] left-[40%] w-[23%] py-7 rounded px-1 justify-center items-center flex flex-col"
-            : "hidden"
-        }
-      >
-        <BsCheckLg className=" text-[1rem] text-white w-[40px] h-[40px] rounded-full bg-teal-400 mb-4" />
-        <span className="text-white text-[1rem] w-full  text-center">
-        Cập nhật thành công
-        </span>
-      </div>
-          <div
-        className={
-          error === true
-            ? " fixed  bg-zinc-700 opacity-[0.85]  top-[35%] left-[40%] w-[23%] py-7 rounded px-1 justify-center items-center flex flex-col"
-            : "hidden"
-        }
-      >
-        <BiErrorCircle className=" text-[1rem]  w-[40px] h-[40px] rounded-full    text-red-600 mb-4" />
-        <span className="text-white text-[1rem] w-full  text-center">
-       Cập nhật thất bại!
-        </span>
-      </div>
-          
+            <div
+              className={
+                success === true
+                  ? " fixed  bg-zinc-700 opacity-[0.85]  top-[35%] left-[40%] w-[23%] py-7 rounded px-1 justify-center items-center flex flex-col"
+                  : "hidden"
+              }
+            >
+              <BsCheckLg className=" text-[1rem] text-white w-[40px] h-[40px] rounded-full bg-teal-400 mb-4" />
+              <span className="text-white text-[1rem] w-full  text-center">
+                Cập nhật thành công
+              </span>
+            </div>
+            <div
+              className={
+                error === true
+                  ? " fixed  bg-zinc-700 opacity-[0.85]  top-[35%] left-[40%] w-[23%] py-7 rounded px-1 justify-center items-center flex flex-col"
+                  : "hidden"
+              }
+            >
+              <BiErrorCircle className=" text-[1rem]  w-[40px] h-[40px] rounded-full    text-red-600 mb-4" />
+              <span className="text-white text-[1rem] w-full  text-center">
+                Cập nhật thất bại!
+              </span>
+            </div>
+
             <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
               <div className="lg:col-span-2 border-r-slate-300 border  border-transparent pr-3">
                 <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
@@ -173,6 +166,7 @@ export default function UserProfile(props) {
                     <input
                       onChange={data}
                       value={valueInput.fullName}
+                     
                       type="text"
                       name="full_name"
                       id="full_name"
@@ -257,7 +251,7 @@ export default function UserProfile(props) {
 
                   <div className="md:col-span-5 text-right">
                     <div className="inline-flex items-end">
-                      {dataUser.length > 0  ? (
+                      {dataUser.length > 0 ? (
                         <button
                           onClick={handleUpdate}
                           className=" bg-fuchsia-300 hover:bg-fuchsia-400 text-white font-bold py-2 px-4 rounded mt-9"
@@ -265,13 +259,13 @@ export default function UserProfile(props) {
                           Cập nhật
                         </button>
                       ) : (
-                      <button
-                        onClick={handleProfile}
-                        className=" bg-fuchsia-300 hover:bg-fuchsia-400 text-white font-bold py-2 px-4 rounded mt-9"
-                      >
-                        Lưu
-                      </button>
-                     )} 
+                        <button
+                          onClick={handleProfile}
+                          className=" bg-fuchsia-300 hover:bg-fuchsia-400 text-white font-bold py-2 px-4 rounded mt-9"
+                        >
+                          Lưu
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

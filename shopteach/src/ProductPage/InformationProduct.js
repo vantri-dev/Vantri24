@@ -1,14 +1,18 @@
-import React  from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect }  from "react";
 import { AiTwotoneStar } from "react-icons/ai";
 import { BsCheck } from "react-icons/bs";
 import { useState } from "react";
 import QuantityProduct from "./QuantityProduct";
 import { useAuth } from "../context/Context";
-export function InformationProduct(props) {
+export function InformationProduct() {
   const [SelectProduct, setSelectProduct] = useState(false);
   const [changeColor, setChangeColor] = useState(false);
   const [selectProductCapacity, setSelectProductCapacity] = useState(false);
    const { getChangeImage}=useAuth();
+   useEffect(()=>{
+    getChangeImage(changeColor);
+   },[changeColor])
   const handleSelectProduct = (data) => {
     setSelectProduct(data);
   };  
@@ -20,14 +24,13 @@ export function InformationProduct(props) {
   const hanldeChangeColorProduct = (data) => {
     setChangeColor(data);
   };
-    getChangeImage(changeColor);
  
   return (
     <>
       <div className=" w-full">
         <div className="w-full px-5 py-5 ">
           <span className="flex flex-wrap text-[1.5rem]  font-black">
-            Apple iPhone 13 Chính Hãng Tại Thị Trường Việt Nam
+            Apple iPhone 14 Chính Hãng Tại Thị Trường Việt Nam
           </span>
           <div className="flex items-center mt-3">
             <div className="flex items-center gap-[2px] text-[1.25rem] text-violet pr-7  border-r">

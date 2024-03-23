@@ -4,11 +4,11 @@ import Slider from "../../Slider/Slider";
 import Translation from "./Translation";
 import FlashSale from "./FlashSale";
 import Product from "./Product/Product";
-// import Footer from "./Footer";
 
 import Trademark from "./trademark/trademark";
-import BackTop from "../../../BackTop/BackTop";
+import BackTop from "../../BackTop/BackTop";
 function Home() {
+  
   const listProduct = [
     {
       name: "Điện thoại",

@@ -17,13 +17,14 @@ import AddProduct from "./AddProduct";
 export default function ProductPage() {
   const [productId, setProductId] = useState([]);
   const [products, setProducts] = useState([]);
-  const { handleProductCurrent, handleAddCart } = useAuth();
+  const { handleProductCurrent, handleAddCart ,handleGetProductId} = useAuth();
   const [hiddenSuccess, setHiddenSuccess] = useState(false);
   const [hiddenError, setHiddenError] = useState(false);
+
   const cartLocalStorage = JSON.parse(
     localStorage.getItem("productCart" || [])
   );
-  const [productCart, setProductCart] = useState(cartLocalStorage);
+  const [productCart, setProductCart] = useState(cartLocalStorage);   
   const param = useParams();
   const idProduct = param.idProduct;
   useEffect(() => {
@@ -50,16 +51,24 @@ export default function ProductPage() {
 
   const AddProductCart = () => {
     try {
-      const indexCart = productCart.find((item) => item.id === idProduct);
-      if (productId.id >= 0) {
-        const newProductCart = {
-          ...productId,
-        };
-        if (!indexCart) {
-          setProductCart([...productCart, newProductCart]);
-        } else {
-          //quantity
-        }
+        const indexCart = productCart.find((item) => item.id === productId.id);
+        if (productId.id >= 0) {
+          const newProductCart = {
+            ...productId,
+          };
+          handleGetProductId(newProductCart)
+          if (indexCart) {
+            const existingItem = productCart.map((item) => {
+              if (item.id === productId.id) {
+                return { ...newProductCart, quantity: 2 };
+              } else {
+                return item;
+              } 
+            });
+            setProductCart(existingItem);
+          } else {
+            setProductCart([...productCart, { ...newProductCart, quantity: 1 }]);
+          }
         setHiddenSuccess(true);
       } else {
         setHiddenError(true);
@@ -91,7 +100,7 @@ export default function ProductPage() {
           </Link>
           <BsChevronRight className="text-[0.9rem] mt-[2px] text-slate-400" />
           <Link to="/practicalShipping">
-            <span className="text-[0.9rem] ">Tiện ích</span>
+            <span className="text-[0.9rem] ">Sản phẩm</span>
           </Link>
         </div>
         <div className=" grid grid-cols-3 bg-white ">

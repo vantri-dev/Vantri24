@@ -36,11 +36,10 @@ export default function CommentPage() {
       quantity: 105,
     },
   ];
-  const [fillterComment, setFillterComment] = useState(null);
+  const [fillterComment, setFillterComment] = useState();
   const getFillterComment = (data) => {
     setFillterComment(data);
   };
-  // console.log(fillterComment)
   return (
     <div className="w-full bg-white rounded">
       <CommentProduct getFillterComment={getFillterComment} />

@@ -30,9 +30,16 @@ export function Context({ children }) {
   //Get Handle Product
   const [deleteProduct, setDeleteProduct] = useState([]);
   //Cart Product
-  const GetProductCart = JSON.parse(localStorage.getItem('productCart' || []))
-  const [cartProduct, setCartProduct] = useState(GetProductCart !== null ? GetProductCart :[]);
-  //Cart Delete Product
+  const GetProductCart = JSON.parse(localStorage.getItem("productCart" || []));
+  const [cartProduct, setCartProduct] = useState(
+    GetProductCart !== null ? GetProductCart : []
+  );
+  //HandleGetProductId
+  const [productId, setProductId] = useState([]);
+  //Handle Get CheckOut
+  const [checkOut, setCheckOut] = useState([]);
+  //Get Price Product
+  const [priceProduct, setPriceProduct] = useState(0);
   function signUp(email, password) {
     return auth.createUserWithEmailAndPassword(email, password);
   }
@@ -91,15 +98,27 @@ export function Context({ children }) {
   function handleAddCart(product) {
     setCartProduct(product);
   }
-  localStorage.setItem('productCart',JSON.stringify(cartProduct))
- //Get Delete Product
-function deleteProductCart(id){
-   const deleteCart = cartProduct.filter(item => {
-    return item.id !== id;
-  })
-  setCartProduct(deleteCart)
-}
+  localStorage.setItem("productCart", JSON.stringify(cartProduct));
+  //Get Delete Product
+  function deleteProductCart(id) {
+    const deleteCart = cartProduct.filter((item) => {
+      return item.id !== id;
+    });
+    setCartProduct(deleteCart);
+  }
 
+  function handleGetProductId(product) {
+    setProductId(product);
+  }
+  function handleCheckOut(data) {
+    setCheckOut(data);
+  }
+
+  //Get Price Product
+  function getPriceProduct(data) {
+    setPriceProduct(data);
+  }
+  localStorage.setItem("checkOut1", JSON.stringify(checkOut));
 
   const value = {
     //Auth
@@ -130,7 +149,15 @@ function deleteProductCart(id){
     cartProduct,
     //Get Id Cart
     deleteProductCart,
-   
+    //handleGetProductId
+    handleGetProductId,
+    productId,
+    //handleCheckOut
+    handleCheckOut,
+    checkOut,
+    //Price Product
+    getPriceProduct,
+    priceProduct,
   };
   return (
     <AuthProvider.Provider value={value}>

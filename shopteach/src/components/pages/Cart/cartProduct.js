@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { BsChatRightDots, BsChevronRight } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa6";
@@ -6,16 +7,41 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiSolidDiscount } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../context/Context";
-
 const CartProduct = () => {
   const [heart, setHeart] = useState(false);
-  const { cartProduct,deleteProductCart } = useAuth();
+  const { cartProduct, deleteProductCart, checkOut,getPriceProduct } = useAuth();
+  const [caculateQuantityProduct, setCaculateQuantityProduct] = useState(0);
+  const [isRouterCheckOut, setIsRouterCheckOut] = useState(false);
+
   const handleDeleteProduct = (id) => {
-    deleteProductCart(id)
+    deleteProductCart(id);
   };
-  useEffect(()=>{
+
+  useEffect(() => {
     localStorage.setItem("productCart", JSON.stringify(cartProduct));
-  },[cartProduct])
+  }, [cartProduct]);
+
+  //Caculate
+  useEffect(() => {
+    const handleCaculatePrice = () => {
+      const calPrice = cartProduct.reduce((total, price) => {
+        return total + price.id;
+      }, 0);
+      setCaculateQuantityProduct(calPrice)
+  getPriceProduct(calPrice)
+
+    };
+    handleCaculatePrice();
+  }, [cartProduct]);
+  //CheckOut
+  useEffect(() => {
+    if ((Object.keys(checkOut).length === 0) === true) {
+      setIsRouterCheckOut(true);
+    } else {
+      setIsRouterCheckOut(false);
+    }
+  }, [isRouterCheckOut]);
+
   return (
     <div className="w-full pt-[10px]  bg-gray-100 pr-[100px]  pl-[90px] relative">
       <div className="w-full flex items-center">
@@ -53,7 +79,6 @@ const CartProduct = () => {
                       </span>
                     </div>
                     <div className="flex  items-center px-5 py-3">
-                      <input type="checkbox" />
                       <img
                         className="w-20 h-20 mx-4 border rounded"
                         alt=""
@@ -131,12 +156,20 @@ const CartProduct = () => {
               </div>
               <div className="flex items-center justify-between px-5 py-3">
                 <p className="text-[1.1rem] text-textword">Tạm tính:</p>
-                <p className="text-[1.3rem] font-sans font-bold">0đ</p>
+                <p className="text-[1.3rem] font-sans font-bold">
+                  {caculateQuantityProduct.toFixed(3)}đ
+                </p>
               </div>
               <div className=" flex items-center  justify-center">
-                <button className=" text-[1.15rem] border border-violet rounded py-3 px-[100px]  bg-violet text-white">
-                  Mua ngay
-                </button>
+                <Link
+                  to={
+                    isRouterCheckOut === true ? "/checkOut" : "/inforCheckOut"
+                  }
+                >
+                  <button className=" text-[1.15rem] border border-violet rounded py-3 px-[100px]  bg-violet text-white">
+                    Mua ngay
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

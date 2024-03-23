@@ -12,6 +12,8 @@ import FlashSale from "../FlashSale/FlashSale"
 import Outstanding from "../Outstanding/Outstanding"
 import ProductPage from "../ProductPage/ProductPage"
 import ProductFilterPhone from "../components/pages/ProductFilterSearch/ProductPhone/ProductFilterPhone"
+import CheckOut from "../CheckOut/CheckOut"
+import InforCheckOut from "../CheckOut/InforCheckOut"
 const publicRouter=[
     {
         path:'/',
@@ -72,10 +74,17 @@ const publicRouter=[
         path:'/productFilterPhone',
         component:ProductFilterPhone
     },
+    {
+        path:'/checkOut',
+        component:CheckOut
+    },
+    {
+        path:'/inforCheckOut',
+        component:InforCheckOut
+    },
 
 ]
 
 export {
-  
     publicRouter
 }

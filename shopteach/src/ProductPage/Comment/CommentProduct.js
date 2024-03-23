@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 export default function CommentProduct(props) {
@@ -30,12 +31,12 @@ export default function CommentProduct(props) {
       title: "1 sao",
       quantityComment: 1,
     },
-  
- 
   ];
   const [activeComment, setActiveComment] = useState(0);
-const {getFillterComment}=props
-getFillterComment(activeComment)
+  const { getFillterComment } = props;
+  useEffect(() => {
+    getFillterComment(activeComment);
+  }, [activeComment]);
   return (
     <div className=" bg-white ml-5">
       <div className=" border w-[70%] bg-[#fdf4ff]">

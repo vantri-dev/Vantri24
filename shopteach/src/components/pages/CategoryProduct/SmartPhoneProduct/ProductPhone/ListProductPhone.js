@@ -19,9 +19,7 @@ export default function ListProductPhone() {
     dataProducts();
   }, [offset]);
   const endOffset = offset + itemsPerPage;
-  console.log(`Loading items from ${offset} to ${endOffset}`);
   const currentItems = products.slice(offset, endOffset);
-  console.log(currentItems);
   const pageCount = Math.ceil(products.length / itemsPerPage);
   const handlePageClick = (e) => {
  

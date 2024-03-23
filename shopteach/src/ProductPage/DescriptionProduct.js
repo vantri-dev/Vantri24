@@ -17,9 +17,9 @@ export default function DescriptionProduct(props) {
           </span>
         </div>
         <div className=" px-10 py-2    bg-white   ">
-          <p>
+          <span>
           {productId.body}
-            <p
+            <span
               className={
                 hiidenContext === true
                   ? "block"
@@ -32,8 +32,8 @@ export default function DescriptionProduct(props) {
               người đàn anh trước đây. Với trọng lượng chỉ vỏn vẹn 172g, được
               thiết kế nguyên khối mang đến cho người dùng một thiết kế nhỏ gọn,
               tiện lợi khi sử dụng.
-            </p>
-            <p
+            </span>
+            <span
               className={
                 hiidenContext === true
                   ? "block"
@@ -46,8 +46,8 @@ export default function DescriptionProduct(props) {
               Đen (Midnight), Trắng ( Starlight) , Đỏ ( Product Red), Xanh dương
               (Blue), Tím (Purple). Cho người dùng thoải mái lựa chọn màu sắc
               phù hợp với cá tính và sở thích của bản thân.
-            </p>
-          </p>
+            </span>
+          </span>
         </div>
 
         <div

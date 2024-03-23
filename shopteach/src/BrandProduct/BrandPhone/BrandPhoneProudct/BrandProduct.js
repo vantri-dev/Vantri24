@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate';
 import { useState ,useEffect} from 'react';
+import { Link } from 'react-router-dom';
 export default function BrandProduct(props) {
      const {data}= props
   const [products, setProducts] = useState([]);
@@ -30,7 +31,8 @@ export default function BrandProduct(props) {
         currentItems.map((product,index)=>{
           return(
             <div key={index} className=" col-span-1  w-full max-h-[540px] ">
-            <div className="w-[210px] border rounded  bg-white   cursor-pointer transition-all ease-out translate-y-0 hover:-translate-y-[3px] hover:border-violet">
+              <Link to={`/productpage/${product.id}`}>
+              <div className="w-[210px] border rounded  bg-white   cursor-pointer transition-all ease-out translate-y-0 hover:-translate-y-[3px] hover:border-violet">
               <div className=" w-full  ">
                 <img
                   className="w-[170px] h-[190px] flex  m-auto border"
@@ -64,6 +66,8 @@ export default function BrandProduct(props) {
                 </div>
               </div>
             </div>
+              </Link>
+            
           </div>
           )
         })
